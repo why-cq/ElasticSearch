@@ -1,0 +1,31 @@
+# 数据库的配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/t_blog?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    # Hikari 数据源的专用配置
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  # es 配置
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      cluster-name: elasticsearch
+
+  mvc:
+    static-path-pattern: /**
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: static/**
+  # 日期格式化4
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
